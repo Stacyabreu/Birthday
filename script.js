@@ -21,15 +21,17 @@ function showMonth(index) {
 
     currentMonth = index;
 
-    months[index].scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+    setTimeout(function() {
+        months[index].scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }, 50);
 }
 
 
 /* =========================
-   START EXPERIENCE
+   START
 ========================= */
 
 function startExperience(event) {
@@ -39,7 +41,6 @@ function startExperience(event) {
     }
 
     showMonth(0);
-
 }
 
 
@@ -61,7 +62,6 @@ function nextMonth() {
         });
 
     }
-
 }
 
 
@@ -76,7 +76,6 @@ function previousMonth() {
         showMonth(currentMonth - 1);
 
     }
-
 }
 
 
