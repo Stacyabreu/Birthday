@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Italiana&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500&display=swap');
 
 
 /* =========================
@@ -17,49 +17,43 @@ html {
 
 body {
     min-height: 100vh;
+
     background: #07111f;
-    color: #f4f7ff;
+
+    color: #edf3fc;
+
     font-family: "Montserrat", sans-serif;
+
     overflow-x: hidden;
 }
 
 
 /* =========================
-   BACKGROUND
+   GENERAL BACKGROUND
 ========================= */
 
 body::before {
     content: "";
+
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
-    z-index: -2;
+
+    z-index: -1;
 
     background:
         radial-gradient(
-            circle at 20% 20%,
-            rgba(65, 105, 170, 0.18),
-            transparent 35%
+            circle at 15% 15%,
+            rgba(72, 112, 173, 0.12),
+            transparent 32%
         ),
         radial-gradient(
-            circle at 80% 70%,
-            rgba(47, 77, 140, 0.18),
+            circle at 85% 75%,
+            rgba(40, 76, 130, 0.12),
             transparent 35%
         );
-
-    animation: backgroundGlow 12s ease-in-out infinite alternate;
-}
-
-@keyframes backgroundGlow {
-
-    from {
-        opacity: .65;
-    }
-
-    to {
-        opacity: 1;
-    }
-
 }
 
 
@@ -70,48 +64,51 @@ body::before {
 .hero {
     min-height: 100vh;
 
+    position: relative;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
 
     padding: 30px;
 
-    position: relative;
-
     background:
         linear-gradient(
-            rgba(5, 14, 28, .45),
-            rgba(5, 14, 28, .88)
+            rgba(4, 12, 24, 0.35),
+            rgba(4, 12, 24, 0.92)
         ),
         radial-gradient(
-            circle at center,
-            #183968 0%,
-            #0b1b32 45%,
-            #050c17 100%
+            circle at 50% 45%,
+            #183a68 0%,
+            #0b1d35 42%,
+            #050b15 100%
         );
 }
 
+
+/* subtle stars */
 
 .stars {
     position: absolute;
 
     top: 12%;
-    left: 5%;
 
-    width: 90%;
+    width: 100%;
 
-    color: rgba(190, 215, 255, .35);
+    color: rgba(178, 205, 242, 0.35);
 
-    font-size: 14px;
+    font-size: 13px;
 
-    letter-spacing: 25px;
+    letter-spacing: 18px;
 
-    animation: stars 8s ease-in-out infinite alternate;
+    animation: floatingStars 9s ease-in-out infinite alternate;
 }
 
-@keyframes stars {
+@keyframes floatingStars {
 
     from {
         opacity: .25;
@@ -120,14 +117,18 @@ body::before {
 
     to {
         opacity: .65;
-        transform: translateY(15px);
+        transform: translateY(12px);
     }
 
 }
 
 
+/* =========================
+   HERO CONTENT
+========================= */
+
 .overlay {
-    width: min(760px, 92%);
+    width: min(720px, 92%);
 
     position: relative;
 
@@ -135,57 +136,43 @@ body::before {
 }
 
 
-.decorative-star {
-    color: #91b9ff;
+.small-star {
+    color: #8eafe0;
 
-    font-size: 20px;
+    font-size: 18px;
 
     margin-bottom: 25px;
 
-    animation: sparkle 3s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-
-    0%, 100% {
-        opacity: .4;
-        transform: scale(.9);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.1);
-    }
-
+    opacity: .8;
 }
 
 
 .overlay h1 {
     font-family: "Cormorant Garamond", serif;
 
-    font-weight: 500;
-
     font-size: clamp(3.5rem, 8vw, 6rem);
 
-    line-height: 1;
+    font-weight: 500;
 
-    margin-bottom: 30px;
+    line-height: .95;
 
     letter-spacing: -1px;
 
+    margin-bottom: 32px;
+
     text-shadow:
-        0 0 30px rgba(125, 170, 255, .22);
+        0 0 35px rgba(116, 159, 218, .18);
 }
 
 
 .overlay p {
-    max-width: 680px;
+    max-width: 650px;
 
     margin: 0 auto 45px;
 
-    color: #cbd7ea;
+    color: #bdcadd;
 
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(.95rem, 2vw, 1.1rem);
 
     line-height: 2;
 
@@ -194,48 +181,43 @@ body::before {
 
 
 /* =========================
-   MAIN BUTTON
+   BEGIN BUTTON
 ========================= */
 
 .button {
     display: inline-block;
 
-    padding: 16px 42px;
+    padding: 15px 40px;
 
-    border-radius: 999px;
+    border: 1px solid rgba(151, 184, 226, .28);
+
+    border-radius: 100px;
+
+    color: #e8f1ff;
+
+    background: rgba(101, 142, 200, .08);
+
+    backdrop-filter: blur(12px);
 
     text-decoration: none;
 
-    color: #eef5ff;
+    font-size: .9rem;
 
-    background: rgba(116, 157, 220, .12);
+    letter-spacing: 1px;
 
-    border: 1px solid rgba(155, 190, 245, .3);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, .25),
-        inset 0 0 20px rgba(150, 190, 255, .05);
-
-    transition: all .4s ease;
-
-    font-size: 1rem;
-
-    letter-spacing: .5px;
+    transition: .4s ease;
 }
 
-.button:hover {
 
+.button:hover {
     transform: translateY(-4px);
 
-    background: rgba(145, 183, 240, .2);
+    background: rgba(111, 153, 215, .16);
 
-    border-color: rgba(180, 210, 255, .6);
+    border-color: rgba(170, 201, 240, .5);
 
     box-shadow:
-        0 15px 45px rgba(65, 110, 190, .25),
-        0 0 25px rgba(110, 160, 240, .12);
+        0 12px 35px rgba(20, 52, 92, .35);
 }
 
 
@@ -246,52 +228,53 @@ body::before {
 #meses {
     min-height: 100vh;
 
-    padding: 90px 0;
+    padding: 100px 0;
 
     background:
         linear-gradient(
             to bottom,
             #07111f,
-            #09182b 50%,
+            #09182a,
             #07111f
         );
 }
 
 
 /* =========================
-   MONTH CARDS
+   MONTH CARD
 ========================= */
 
 .month {
-
     display: none;
 
-    width: min(850px, 90%);
+    width: min(820px, 90%);
 
-    margin: 50px auto;
+    margin: 40px auto;
 
-    padding: clamp(35px, 7vw, 75px);
+    padding: clamp(40px, 7vw, 75px);
 
     text-align: center;
+
+    position: relative;
 
     background:
         linear-gradient(
             145deg,
-            rgba(100, 145, 215, .10),
-            rgba(255, 255, 255, .025)
+            rgba(98, 137, 190, .075),
+            rgba(255, 255, 255, .018)
         );
 
-    border: 1px solid rgba(150, 190, 245, .15);
+    border: 1px solid rgba(146, 178, 220, .13);
 
-    border-radius: 30px;
+    border-radius: 28px;
 
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(18px);
 
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, .35),
-        inset 0 1px 0 rgba(255, 255, 255, .06);
+        0 25px 70px rgba(0, 0, 0, .3),
+        inset 0 1px rgba(255, 255, 255, .04);
 
-    animation: monthAppear .8s ease;
+    animation: appear .8s ease;
 }
 
 
@@ -300,130 +283,144 @@ body::before {
 }
 
 
-@keyframes monthAppear {
+@keyframes appear {
 
     from {
         opacity: 0;
-        transform: translateY(25px);
+
+        transform: translateY(20px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
 
 }
 
 
-.month-symbol {
-    font-family: "Cormorant Garamond", serif;
+/* =========================
+   MONTH NUMBER
+========================= */
 
-    font-size: 30px;
+.month-number {
+    display: block;
 
-    color: #8db5f5;
+    font-family: "Montserrat", sans-serif;
+
+    font-size: .7rem;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    color: #7799c8;
 
     margin-bottom: 18px;
 
-    opacity: .75;
+    opacity: .7;
 }
 
+
+/* =========================
+   MONTH TITLE
+========================= */
 
 .month h2 {
     font-family: "Cormorant Garamond", serif;
 
-    font-weight: 500;
-
     font-size: clamp(3rem, 6vw, 4.5rem);
+
+    font-weight: 500;
 
     line-height: 1;
 
     margin-bottom: 12px;
-
-    letter-spacing: .5px;
 }
 
 
 .month h3 {
     font-family: "Cormorant Garamond", serif;
 
+    font-size: 1.45rem;
+
     font-style: italic;
 
     font-weight: 500;
 
-    font-size: 1.5rem;
+    color: #91add3;
 
-    color: #9bbcf0;
-
-    margin-bottom: 35px;
-
-    letter-spacing: .3px;
+    margin-bottom: 38px;
 }
 
 
+/* =========================
+   MONTH TEXT
+========================= */
+
 .month p {
-    max-width: 680px;
+    max-width: 660px;
 
     margin: 0 auto 20px;
 
-    color: #cbd5e5;
+    color: #bec9d9;
+
+    font-size: 1rem;
 
     line-height: 2;
-
-    font-size: 1.05rem;
 
     font-weight: 300;
 }
 
 
 /* =========================
-   NAVIGATION
+   MONTH NAVIGATION
 ========================= */
 
 .month-buttons {
-
     display: flex;
 
     justify-content: center;
 
-    gap: 15px;
+    gap: 14px;
 
     margin-top: 45px;
 }
 
 
 .nav-button {
+    padding: 11px 23px;
 
-    padding: 12px 25px;
+    border: 1px solid rgba(145, 177, 220, .18);
 
-    border-radius: 999px;
+    border-radius: 100px;
 
-    border: 1px solid rgba(150, 190, 245, .2);
+    background: rgba(83, 121, 174, .06);
 
-    color: #dce9ff;
-
-    background: rgba(100, 145, 215, .08);
-
-    cursor: pointer;
+    color: #b9cbe3;
 
     font-family: "Montserrat", sans-serif;
 
-    transition: all .3s ease;
+    font-size: .8rem;
+
+    cursor: pointer;
+
+    transition: .3s ease;
 }
 
 
 .nav-button:hover:not(:disabled) {
+    background: rgba(93, 137, 200, .14);
 
-    background: rgba(120, 165, 230, .18);
-
-    border-color: rgba(170, 205, 255, .45);
+    border-color: rgba(157, 190, 231, .4);
 
     transform: translateY(-2px);
 }
 
 
 .nav-button:disabled {
-
-    opacity: .3;
+    opacity: .25;
 
     cursor: not-allowed;
 }
@@ -434,45 +431,56 @@ body::before {
 ========================= */
 
 .month-six {
-
     background:
-        radial-gradient(
-            circle at center,
-            rgba(65, 95, 145, .13),
-            rgba(255, 255, 255, .015)
+        linear-gradient(
+            145deg,
+            rgba(62, 82, 112, .06),
+            rgba(255, 255, 255, .012)
         );
 
-    border-color: rgba(150, 175, 220, .12);
+    border-color: rgba(133, 151, 179, .1);
 }
 
 
-.month-six .month-symbol {
-
-    color: #a9c4ef;
+.month-six .month-number {
+    color: #61738e;
 }
 
 
 .month-six h2 {
+    color: rgba(220, 229, 242, .55);
 
-    font-size: clamp(4rem, 10vw, 6rem);
-
-    color: rgba(220, 230, 250, .45);
+    font-size: clamp(4rem, 9vw, 6rem);
 }
 
 
 .month-six h3 {
-
-    color: #dce6f7;
-
-    margin-top: 15px;
+    color: #aab7ca;
 }
 
 
 .month-six p {
+    color: #8e9bad;
 
-    color: #aebbd0;
+    margin-bottom: 28px;
+}
 
-    margin-top: 30px;
+
+.month-six .quiet-text {
+    color: #687487;
+
+    font-style: italic;
+}
+
+
+.empty-line {
+    width: 45px;
+
+    height: 1px;
+
+    margin: 35px auto;
+
+    background: rgba(143, 164, 192, .25);
 }
 
 
@@ -481,12 +489,13 @@ body::before {
 ========================= */
 
 .goodbye {
+    min-height: 100vh;
 
     width: min(800px, 90%);
 
     margin: 0 auto;
 
-    padding: 150px 20px;
+    padding: 140px 20px 100px;
 
     text-align: center;
 
@@ -494,41 +503,86 @@ body::before {
 }
 
 
-.goodbye-symbol {
+.final-line {
+    width: 45px;
 
-    color: #88afea;
+    height: 1px;
 
-    margin-bottom: 30px;
+    margin: 0 auto 35px;
 
-    font-size: 20px;
-
-    animation: sparkle 3s ease-in-out infinite;
+    background: #7899c5;
 }
 
 
 .goodbye h2 {
-
     font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(3.5rem, 7vw, 5rem);
 
     font-weight: 500;
 
-    font-size: clamp(3.5rem, 7vw, 5.5rem);
-
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 
-.goodbye p {
+.final-message {
+    max-width: 650px;
 
-    color: #bdc9dc;
+    margin: auto;
+}
+
+
+.final-message p {
+    color: #b8c4d5;
+
+    font-size: 1rem;
 
     line-height: 2;
 
-    font-size: 1.1rem;
-
-    margin-bottom: 22px;
-
     font-weight: 300;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   LAST WORDS
+========================= */
+
+.last-words {
+    max-width: 650px;
+
+    margin: 120px auto 0;
+
+    padding-top: 55px;
+
+    border-top: 1px solid rgba(140, 165, 200, .1);
+}
+
+
+.last-words p {
+    font-family: "Cormorant Garamond", serif;
+
+    color: #d5dfed;
+
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+
+    line-height: 1.5;
+
+    font-weight: 500;
+}
+
+
+.last-words .last-line {
+    margin-top: 25px;
+
+    color: #8fa8ca;
+
+    font-size: clamp(1.25rem, 3vw, 1.7rem);
+
+    font-style: italic;
+
+    font-weight: 400;
 }
 
 
@@ -537,15 +591,15 @@ body::before {
 ========================= */
 
 ::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #050c17;
+    background: #050b15;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #294b7d;
+    background: #263f63;
 
     border-radius: 50px;
 }
@@ -562,44 +616,54 @@ body::before {
     }
 
     .stars {
-        letter-spacing: 10px;
-        font-size: 12px;
+        top: 10%;
+
+        font-size: 11px;
+
+        letter-spacing: 6px;
     }
 
     .overlay h1 {
-        font-size: clamp(3rem, 13vw, 4.5rem);
+        font-size: clamp(3rem, 14vw, 4.5rem);
     }
 
     .overlay p {
-        font-size: 1rem;
-        line-height: 1.8;
+        font-size: .95rem;
+
+        line-height: 1.9;
     }
 
     .button {
-        padding: 15px 32px;
+        padding: 14px 34px;
     }
 
     #meses {
-        padding: 50px 0;
+        padding: 55px 0;
     }
 
     .month {
         width: 90%;
-        padding: 40px 25px;
-        margin: 30px auto;
-        border-radius: 24px;
+
+        padding: 45px 25px;
+
+        margin: 25px auto;
+
+        border-radius: 23px;
     }
 
     .month h2 {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
 
     .month h3 {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
+
+        margin-bottom: 30px;
     }
 
     .month p {
-        font-size: 1rem;
+        font-size: .95rem;
+
         line-height: 1.9;
     }
 
@@ -607,8 +671,6 @@ body::before {
         flex-direction: column;
 
         align-items: center;
-
-        gap: 10px;
     }
 
     .nav-button {
@@ -616,10 +678,21 @@ body::before {
     }
 
     .goodbye {
-        padding: 110px 25px;
+        width: 90%;
+
+        padding: 100px 20px 70px;
     }
 
-    .goodbye p {
-        font-size: 1rem;
+    .goodbye h2 {
+        margin-bottom: 40px;
     }
+
+    .final-message p {
+        font-size: .95rem;
+    }
+
+    .last-words {
+        margin-top: 90px;
+    }
+
 }
