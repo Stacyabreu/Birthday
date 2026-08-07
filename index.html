@@ -10,42 +10,71 @@
 </head>
 
 <body>
+<!-- HERO -->
 
-    <!-- HERO -->
+<section class="hero">
 
-    <section class="hero">
+    <div class="overlay">
 
-        <div class="overlay">
+        <h1>Feliz cumpleaños, Ismael.</h1>
 
-            <h1>Feliz cumpleaños, Ismael.</h1>
+        <p>
+            Este regalo lo tuve planeado durante mucho tiempo y, aunque no existe
+            una explicación para lo que pasó entre nosotros, todavía siento la
+            necesidad de darte esto.
+        </p>
 
-            <p>
-                Llevaba mucho tiempo planeando este regalo y, aunque quizás nunca encontremos una explicación para lo que pasó entre nosotros, sentí que aún quería darte esto.
-            </p>
+        <a href="#mes1" class="button" onclick="showMonth(0)">
+            Comenzar
+        </a>
 
-            <a href="#mes1" class="button">
-                Comenzar
-            </a>
+    </div>
 
-        </div>
+</section>
 
-    </section>
 
-    <!-- TIMELINE -->
+<!-- MONTHS -->
 
-    <section id="mes1" class="month">
+<section id="meses">
+
+    <!-- MES 1 -->
+
+    <section class="month active">
         <h2>Mes 1</h2>
+
         <h3>Donde todo comenzó.</h3>
 
         <p>
-            Aquí puedes escribir cómo empezó todo,
-            la primera conversación o el primer momento
-            que recuerdas con cariño.
+            El primer mes. Este mes fue como los meses anteriores.
+            Ya pensábamos que nos conocíamos a fondo y, por fin, encontramos
+            un título para una situación tan complicada como la que teníamos.
+            Cuando nos preguntaban qué éramos, ya podíamos decir con seguridad
+            que éramos pareja.
         </p>
+
+        <p>
+            Este mes fuimos acercándonos aún más de lo que ya estábamos
+            y seguimos fluyendo como siempre.
+            El primer mes fue el mes en el que menos sentimos el cambio.
+        </p>
+
+        <div class="month-buttons">
+            <button class="nav-button" onclick="previousMonth()" disabled>
+                ← Anterior
+            </button>
+
+            <button class="nav-button" onclick="nextMonth()">
+                Siguiente →
+            </button>
+        </div>
     </section>
+
+
+    <!-- MES 2 -->
 
     <section class="month">
         <h2>Mes 2</h2>
+
         <h3>Aprendiendo a conocernos.</h3>
 
         <p>
@@ -53,10 +82,24 @@
             que poco a poco se volvieran importantes
             el uno para el otro.
         </p>
+
+        <div class="month-buttons">
+            <button class="nav-button" onclick="previousMonth()">
+                ← Anterior
+            </button>
+
+            <button class="nav-button" onclick="nextMonth()">
+                Siguiente →
+            </button>
+        </div>
     </section>
+
+
+    <!-- MES 3 -->
 
     <section class="month">
         <h2>Mes 3</h2>
+
         <h3>Las pequeñas cosas.</h3>
 
         <p>
@@ -65,20 +108,48 @@
             los detalles que parecían pequeños
             pero significaban mucho.
         </p>
+
+        <div class="month-buttons">
+            <button class="nav-button" onclick="previousMonth()">
+                ← Anterior
+            </button>
+
+            <button class="nav-button" onclick="nextMonth()">
+                Siguiente →
+            </button>
+        </div>
     </section>
+
+
+    <!-- MES 4 -->
 
     <section class="month">
         <h2>Mes 4</h2>
+
         <h3>Nuestra rutina.</h3>
 
         <p>
             Cuando hablar ya era parte del día,
             cuando las horas juntos se sentían normales.
         </p>
+
+        <div class="month-buttons">
+            <button class="nav-button" onclick="previousMonth()">
+                ← Anterior
+            </button>
+
+            <button class="nav-button" onclick="nextMonth()">
+                Siguiente →
+            </button>
+        </div>
     </section>
+
+
+    <!-- MES 5 -->
 
     <section class="month">
         <h2>Mes 5</h2>
+
         <h3>Los planes.</h3>
 
         <p>
@@ -87,9 +158,23 @@
             las promesas,
             los sueños que compartimos.
         </p>
+
+        <div class="month-buttons">
+            <button class="nav-button" onclick="previousMonth()">
+                ← Anterior
+            </button>
+
+            <button class="nav-button" onclick="nextMonth()">
+                Siguiente →
+            </button>
+        </div>
     </section>
 
+
+    <!-- MES 6 -->
+
     <section class="month month-six">
+
         <h2>Mes 6</h2>
 
         <h3>Nunca llegamos aquí.</h3>
@@ -105,38 +190,52 @@
         <p>
             quedó en blanco.
         </p>
-    </section>
 
-    <!-- GOODBYE -->
+        <div class="month-buttons">
+            <button class="nav-button" onclick="previousMonth()">
+                ← Anterior
+            </button>
 
-    <section class="goodbye">
-
-        <h2>Gracias.</h2>
-
-        <p>
-            No hice esta página para cambiar nada.
-        </p>
-
-        <p>
-            Solo quería terminar algo
-            que llevaba mucho tiempo queriendo hacer.
-        </p>
-
-        <p>
-            Gracias por cada recuerdo,
-            por cada risa
-            y por haber formado parte de mi vida.
-        </p>
-
-        <p>
-            Te deseo lo mejor,
-            siempre.
-        </p>
+            <button class="nav-button" onclick="nextMonth()">
+                Siguiente →
+            </button>
+        </div>
 
     </section>
 
-    <script src="script.js"></script>
+</section>
 
+
+<!-- GOODBYE -->
+
+<section class="goodbye">
+
+    <h2>Gracias.</h2>
+
+    <p>
+        No hice esta página para cambiar nada.
+    </p>
+
+    <p>
+        Solo quería terminar algo
+        que llevaba mucho tiempo queriendo hacer.
+    </p>
+
+    <p>
+        Gracias por cada recuerdo,
+        por cada risa
+        y por haber formado parte de mi vida.
+    </p>
+
+    <p>
+        Te deseo lo mejor,
+        siempre.
+    </p>
+
+</section>
+
+
+<script src="script.js"></script>
 </body>
 
 </html>
