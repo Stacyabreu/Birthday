@@ -1,13 +1,9 @@
-/* ===========================
-   Google Font
-=========================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Italiana&family=Montserrat:wght@300;400;500&display=swap');
 
 
-/* ===========================
-   Reset
-=========================== */
+/* =========================
+   RESET
+========================= */
 
 * {
     margin: 0;
@@ -20,277 +16,610 @@ html {
 }
 
 body {
-    background: #0f172a;
-    color: white;
-    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+    background: #07111f;
+    color: #f4f7ff;
+    font-family: "Montserrat", sans-serif;
     overflow-x: hidden;
 }
 
 
-/* ===========================
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(65, 105, 170, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(47, 77, 140, 0.18),
+            transparent 35%
+        );
+
+    animation: backgroundGlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundGlow {
+
+    from {
+        opacity: .65;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
    HERO
-=========================== */
+========================= */
 
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            rgba(5, 14, 28, .45),
+            rgba(5, 14, 28, .88)
+        ),
+        radial-gradient(
+            circle at center,
+            #183968 0%,
+            #0b1b32 45%,
+            #050c17 100%
+        );
+}
+
+
+.stars {
+    position: absolute;
+
+    top: 12%;
+    left: 5%;
+
+    width: 90%;
+
+    color: rgba(190, 215, 255, .35);
+
+    font-size: 14px;
+
+    letter-spacing: 25px;
+
+    animation: stars 8s ease-in-out infinite alternate;
+}
+
+@keyframes stars {
+
+    from {
+        opacity: .25;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: .65;
+        transform: translateY(15px);
+    }
+
+}
+
+
+.overlay {
+    width: min(760px, 92%);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.decorative-star {
+    color: #91b9ff;
+
+    font-size: 20px;
+
+    margin-bottom: 25px;
+
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        opacity: .4;
+        transform: scale(.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+}
+
+
+.overlay h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 500;
+
+    font-size: clamp(3.5rem, 8vw, 6rem);
+
+    line-height: 1;
+
+    margin-bottom: 30px;
+
+    letter-spacing: -1px;
+
+    text-shadow:
+        0 0 30px rgba(125, 170, 255, .22);
+}
+
+
+.overlay p {
+    max-width: 680px;
+
+    margin: 0 auto 45px;
+
+    color: #cbd7ea;
+
+    font-size: clamp(1rem, 2vw, 1.2rem);
+
+    line-height: 2;
+
+    font-weight: 300;
+}
+
+
+/* =========================
+   MAIN BUTTON
+========================= */
+
+.button {
+    display: inline-block;
+
+    padding: 16px 42px;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    color: #eef5ff;
+
+    background: rgba(116, 157, 220, .12);
+
+    border: 1px solid rgba(155, 190, 245, .3);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, .25),
+        inset 0 0 20px rgba(150, 190, 255, .05);
+
+    transition: all .4s ease;
+
+    font-size: 1rem;
+
+    letter-spacing: .5px;
+}
+
+.button:hover {
+
+    transform: translateY(-4px);
+
+    background: rgba(145, 183, 240, .2);
+
+    border-color: rgba(180, 210, 255, .6);
+
+    box-shadow:
+        0 15px 45px rgba(65, 110, 190, .25),
+        0 0 25px rgba(110, 160, 240, .12);
+}
+
+
+/* =========================
+   MONTH AREA
+========================= */
+
+#meses {
+    min-height: 100vh;
+
+    padding: 90px 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #07111f,
+            #09182b 50%,
+            #07111f
+        );
+}
+
+
+/* =========================
+   MONTH CARDS
+========================= */
+
+.month {
+
+    display: none;
+
+    width: min(850px, 90%);
+
+    margin: 50px auto;
+
+    padding: clamp(35px, 7vw, 75px);
+
     text-align: center;
 
     background:
         linear-gradient(
-            rgba(15, 23, 42, .65),
-            rgba(15, 23, 42, .85)
-        ),
-        linear-gradient(
-            135deg,
-            #0f172a,
-            #1e293b,
-            #334155
+            145deg,
+            rgba(100, 145, 215, .10),
+            rgba(255, 255, 255, .025)
         );
-}
 
-.overlay {
-    width: min(90%, 700px);
-}
+    border: 1px solid rgba(150, 190, 245, .15);
 
-.overlay h1 {
-    font-family: "Playfair Display", serif;
-    font-size: 5rem;
-    margin-bottom: 25px;
-}
+    border-radius: 30px;
 
-.overlay p {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    color: #d6d6d6;
-    margin-bottom: 45px;
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, .35),
+        inset 0 1px 0 rgba(255, 255, 255, .06);
+
+    animation: monthAppear .8s ease;
 }
 
 
-/* ===========================
-   BUTTON
-=========================== */
-
-.button {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-
-    background: #ffffff15;
-    backdrop-filter: blur(12px);
-
-    border: 1px solid rgba(255, 255, 255, .2);
-
-    padding: 16px 38px;
-    border-radius: 999px;
-
-    transition: .35s;
-    font-weight: 500;
-}
-
-.button:hover {
-    background: white;
-    color: #0f172a;
-    transform: translateY(-4px);
-}
-
-
-/* ===========================
-   MONTHS
-=========================== */
-
-/* Hide all months by default */
-.month {
-    display: none;
-
-    width: min(900px, 90%);
-    margin: 100px auto;
-    padding: 60px;
-
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .08);
-
-    border-radius: 25px;
-
-    backdrop-filter: blur(18px);
-
-    text-align: center;
-}
-
-/* Show ONLY the current month */
 .month.active {
     display: block;
 }
 
-.month h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 3rem;
-    margin-bottom: 10px;
+
+@keyframes monthAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
+
+
+.month-symbol {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+    color: #8db5f5;
+
+    margin-bottom: 18px;
+
+    opacity: .75;
+}
+
+
+.month h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 500;
+
+    font-size: clamp(3rem, 6vw, 4.5rem);
+
+    line-height: 1;
+
+    margin-bottom: 12px;
+
+    letter-spacing: .5px;
+}
+
 
 .month h3 {
-    color: #b8c4ff;
-    font-size: 1.4rem;
-    margin-bottom: 25px;
-    font-weight: 400;
+    font-family: "Cormorant Garamond", serif;
+
+    font-style: italic;
+
+    font-weight: 500;
+
+    font-size: 1.5rem;
+
+    color: #9bbcf0;
+
+    margin-bottom: 35px;
+
+    letter-spacing: .3px;
 }
+
 
 .month p {
-    color: #d8d8d8;
+    max-width: 680px;
+
+    margin: 0 auto 20px;
+
+    color: #cbd5e5;
+
     line-height: 2;
-    font-size: 1.1rem;
+
+    font-size: 1.05rem;
+
+    font-weight: 300;
 }
 
 
-/* ===========================
-   MONTH NAVIGATION
-=========================== */
+/* =========================
+   NAVIGATION
+========================= */
 
 .month-buttons {
+
     display: flex;
+
     justify-content: center;
+
     gap: 15px;
-    margin-top: 40px;
+
+    margin-top: 45px;
 }
 
-.nav-button {
-    padding: 12px 24px;
 
-    border: 1px solid rgba(255, 255, 255, .2);
-    border-radius: 25px;
+.nav-button {
+
+    padding: 12px 25px;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(150, 190, 245, .2);
+
+    color: #dce9ff;
+
+    background: rgba(100, 145, 215, .08);
 
     cursor: pointer;
 
-    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
 
-    color: white;
-    background: rgba(255, 255, 255, .08);
-
-    transition: .3s;
+    transition: all .3s ease;
 }
 
-.nav-button:hover {
-    background: white;
-    color: #0f172a;
+
+.nav-button:hover:not(:disabled) {
+
+    background: rgba(120, 165, 230, .18);
+
+    border-color: rgba(170, 205, 255, .45);
+
     transform: translateY(-2px);
 }
 
+
 .nav-button:disabled {
-    opacity: .4;
+
+    opacity: .3;
+
     cursor: not-allowed;
 }
 
 
-/* ===========================
+/* =========================
    MONTH 6
-=========================== */
+========================= */
 
 .month-six {
-    text-align: center;
 
-    background: rgba(255, 255, 255, .03);
-    border: 1px solid rgba(255, 255, 255, .05);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(65, 95, 145, .13),
+            rgba(255, 255, 255, .015)
+        );
+
+    border-color: rgba(150, 175, 220, .12);
 }
+
+
+.month-six .month-symbol {
+
+    color: #a9c4ef;
+}
+
 
 .month-six h2 {
-    font-size: 5rem;
-    opacity: .3;
+
+    font-size: clamp(4rem, 10vw, 6rem);
+
+    color: rgba(220, 230, 250, .45);
 }
 
+
 .month-six h3 {
-    color: white;
+
+    color: #dce6f7;
+
     margin-top: 15px;
 }
 
+
 .month-six p {
+
+    color: #aebbd0;
+
     margin-top: 30px;
-    font-size: 1.2rem;
 }
 
 
-/* ===========================
+/* =========================
    GOODBYE
-=========================== */
+========================= */
 
 .goodbye {
-    width: min(850px, 90%);
-    margin: 140px auto;
+
+    width: min(800px, 90%);
+
+    margin: 0 auto;
+
+    padding: 150px 20px;
 
     text-align: center;
 
-    opacity: 1;
+    background: #07111f;
 }
+
+
+.goodbye-symbol {
+
+    color: #88afea;
+
+    margin-bottom: 30px;
+
+    font-size: 20px;
+
+    animation: sparkle 3s ease-in-out infinite;
+}
+
 
 .goodbye h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 4rem;
-    margin-bottom: 35px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-weight: 500;
+
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+
+    margin-bottom: 40px;
 }
+
 
 .goodbye p {
-    color: #d8d8d8;
+
+    color: #bdc9dc;
+
     line-height: 2;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+
+    font-size: 1.1rem;
+
+    margin-bottom: 22px;
+
+    font-weight: 300;
 }
 
 
-/* ===========================
-   Scrollbar
-=========================== */
+/* =========================
+   SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #0f172a;
+    background: #050c17;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #4f6ca6;
+    background: #294b7d;
+
     border-radius: 50px;
 }
 
 
-/* ===========================
-   Responsive
-=========================== */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 768px) {
 
+    .hero {
+        padding: 25px;
+    }
+
+    .stars {
+        letter-spacing: 10px;
+        font-size: 12px;
+    }
+
     .overlay h1 {
-        font-size: 3rem;
+        font-size: clamp(3rem, 13vw, 4.5rem);
     }
 
     .overlay p {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .button {
+        padding: 15px 32px;
+    }
+
+    #meses {
+        padding: 50px 0;
     }
 
     .month {
-        padding: 35px;
+        width: 90%;
+        padding: 40px 25px;
+        margin: 30px auto;
+        border-radius: 24px;
     }
 
     .month h2 {
-        font-size: 2.3rem;
+        font-size: 2.8rem;
     }
 
     .month h3 {
         font-size: 1.2rem;
     }
 
-    .goodbye h2 {
-        font-size: 3rem;
+    .month p {
+        font-size: 1rem;
+        line-height: 1.9;
     }
 
     .month-buttons {
         flex-direction: column;
+
         align-items: center;
+
+        gap: 10px;
     }
 
     .nav-button {
-        width: 200px;
+        width: 210px;
+    }
+
+    .goodbye {
+        padding: 110px 25px;
+    }
+
+    .goodbye p {
+        font-size: 1rem;
     }
 }
