@@ -4,289 +4,149 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap');
 
+
 /* ===========================
    Reset
 =========================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    background:#0f172a;
-    color:white;
-    font-family:"Inter", sans-serif;
-    overflow-x:hidden;
+body {
+    background: #0f172a;
+    color: white;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
 }
+
 
 /* ===========================
    HERO
 =========================== */
 
-.hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
     background:
-    linear-gradient(rgba(15,23,42,.65),rgba(15,23,42,.85)),
-    linear-gradient(135deg,#0f172a,#1e293b,#334155);
+        linear-gradient(
+            rgba(15, 23, 42, .65),
+            rgba(15, 23, 42, .85)
+        ),
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b,
+            #334155
+        );
 }
 
-.overlay{
-    width:min(90%,700px);
+.overlay {
+    width: min(90%, 700px);
 }
 
-.overlay h1{
-    font-family:"Playfair Display", serif;
-    font-size:5rem;
-    margin-bottom:25px;
+.overlay h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 5rem;
+    margin-bottom: 25px;
 }
 
-.overlay p{
-    font-size:1.3rem;
-    line-height:1.8;
-    color:#d6d6d6;
-    margin-bottom:45px;
+.overlay p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #d6d6d6;
+    margin-bottom: 45px;
 }
+
 
 /* ===========================
    BUTTON
 =========================== */
 
-.button{
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
 
-    display:inline-block;
+    background: #ffffff15;
+    backdrop-filter: blur(12px);
 
-    text-decoration:none;
+    border: 1px solid rgba(255, 255, 255, .2);
 
-    color:white;
+    padding: 16px 38px;
+    border-radius: 999px;
 
-    background:#ffffff15;
-
-    backdrop-filter:blur(12px);
-
-    border:1px solid rgba(255,255,255,.2);
-
-    padding:16px 38px;
-
-    border-radius:999px;
-
-    transition:.35s;
-
-    font-weight:500;
+    transition: .35s;
+    font-weight: 500;
 }
 
-.button:hover{
-
-    background:white;
-
-    color:#0f172a;
-
-    transform:translateY(-4px);
+.button:hover {
+    background: white;
+    color: #0f172a;
+    transform: translateY(-4px);
 }
+
 
 /* ===========================
    MONTHS
 =========================== */
 
-.month{
+/* Hide all months by default */
+.month {
+    display: none;
 
-    width:min(900px,90%);
+    width: min(900px, 90%);
+    margin: 100px auto;
+    padding: 60px;
 
-    margin:100px auto;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .08);
 
-    padding:60px;
+    border-radius: 25px;
 
-    background:rgba(255,255,255,.06);
+    backdrop-filter: blur(18px);
 
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:25px;
-
-    backdrop-filter:blur(18px);
-
-    opacity:0;
-
-    transform:translateY(60px);
-
-    transition:1s;
+    text-align: center;
 }
 
-.month.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-}
-
-.month h2{
-
-    font-family:"Playfair Display", serif;
-
-    font-size:3rem;
-
-    margin-bottom:10px;
-}
-
-.month h3{
-
-    color:#b8c4ff;
-
-    font-size:1.4rem;
-
-    margin-bottom:25px;
-
-    font-weight:400;
-}
-
-.month p{
-
-    color:#d8d8d8;
-
-    line-height:2;
-
-    font-size:1.1rem;
-}
-
-/* ===========================
-   MONTH 6
-=========================== */
-
-.month-six{
-
-    text-align:center;
-
-    background:rgba(255,255,255,.03);
-
-    border:1px solid rgba(255,255,255,.05);
-}
-
-.month-six h2{
-
-    font-size:5rem;
-
-    opacity:.3;
-}
-
-.month-six h3{
-
-    color:white;
-
-    margin-top:15px;
-}
-
-.month-six p{
-
-    margin-top:30px;
-
-    font-size:1.2rem;
-}
-
-/* ===========================
-   GOODBYE
-=========================== */
-
-.goodbye{
-
-    width:min(850px,90%);
-
-    margin:140px auto;
-
-    text-align:center;
-
-    opacity:0;
-
-    transform:translateY(60px);
-
-    transition:1s;
-}
-
-.goodbye.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-}
-
-.goodbye h2{
-
-    font-family:"Playfair Display", serif;
-
-    font-size:4rem;
-
-    margin-bottom:35px;
-}
-
-.goodbye p{
-
-    color:#d8d8d8;
-
-    line-height:2;
-
-    font-size:1.2rem;
-
-    margin-bottom:20px;
-}
-
-/* ===========================
-   Scrollbar
-=========================== */
-
-::-webkit-scrollbar{
-
-    width:8px;
-}
-
-::-webkit-scrollbar-track{
-
-    background:#0f172a;
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#4f6ca6;
-
-    border-radius:50px;
-}
-
-/* ===========================
-   Responsive
-=========================== */
-
-@media(max-width:768px){
-
-.overlay h1{
-
-    font-size:3rem;
-}
-
-.month{
-
-    padding:35px;
-}
-
-.month h2{
-
-    font-size:2.3rem;
-}
-
-.goodbye h2{
-
-    font-size:3rem;
-}
-
-
+/* Show ONLY the current month */
 .month.active {
     display: block;
 }
+
+.month h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.month h3 {
+    color: #b8c4ff;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.month p {
+    color: #d8d8d8;
+    line-height: 2;
+    font-size: 1.1rem;
+}
+
+
+/* ===========================
+   MONTH NAVIGATION
+=========================== */
 
 .month-buttons {
     display: flex;
@@ -297,13 +157,140 @@ body{
 
 .nav-button {
     padding: 12px 24px;
-    border: none;
+
+    border: 1px solid rgba(255, 255, 255, .2);
     border-radius: 25px;
+
     cursor: pointer;
+
     font-size: 16px;
+
+    color: white;
+    background: rgba(255, 255, 255, .08);
+
+    transition: .3s;
+}
+
+.nav-button:hover {
+    background: white;
+    color: #0f172a;
+    transform: translateY(-2px);
 }
 
 .nav-button:disabled {
-    opacity: 0.4;
+    opacity: .4;
     cursor: not-allowed;
+}
+
+
+/* ===========================
+   MONTH 6
+=========================== */
+
+.month-six {
+    text-align: center;
+
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid rgba(255, 255, 255, .05);
+}
+
+.month-six h2 {
+    font-size: 5rem;
+    opacity: .3;
+}
+
+.month-six h3 {
+    color: white;
+    margin-top: 15px;
+}
+
+.month-six p {
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+
+
+/* ===========================
+   GOODBYE
+=========================== */
+
+.goodbye {
+    width: min(850px, 90%);
+    margin: 140px auto;
+
+    text-align: center;
+
+    opacity: 1;
+}
+
+.goodbye h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 4rem;
+    margin-bottom: 35px;
+}
+
+.goodbye p {
+    color: #d8d8d8;
+    line-height: 2;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4f6ca6;
+    border-radius: 50px;
+}
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 768px) {
+
+    .overlay h1 {
+        font-size: 3rem;
+    }
+
+    .overlay p {
+        font-size: 1.1rem;
+    }
+
+    .month {
+        padding: 35px;
+    }
+
+    .month h2 {
+        font-size: 2.3rem;
+    }
+
+    .month h3 {
+        font-size: 1.2rem;
+    }
+
+    .goodbye h2 {
+        font-size: 3rem;
+    }
+
+    .month-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-button {
+        width: 200px;
+    }
 }
