@@ -1,57 +1,71 @@
-// =========================
-// Smooth Scroll
-// =========================
+let currentMonth = 0;
 
-const beginButton = document.querySelector(".button");
+const months = document.querySelectorAll(".month");
 
-beginButton.addEventListener("click", function (e) {
-    e.preventDefault();
+function showMonth(index) {
 
-    document.querySelector("#mes1").scrollIntoView({
-        behavior: "smooth"
+    if (index < 0 || index >= months.length) {
+        return;
+    }
+
+    months.forEach(month => {
+        month.classList.remove("active");
     });
-});
 
-// =========================
-// Fade In Sections
-// =========================
+    months[index].classList.add("active");
 
-const sections = document.querySelectorAll(".month, .goodbye");
+    currentMonth = index;
 
-const observer = new IntersectionObserver((entries) => {
+    updateButtons();
 
-    entries.forEach(entry => {
+    months[index].scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
 
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+
+function nextMonth() {
+
+    if (currentMonth < months.length - 1) {
+        showMonth(currentMonth + 1);
+    } else {
+        document.querySelector(".goodbye").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+
+
+function previousMonth() {
+
+    if (currentMonth > 0) {
+        showMonth(currentMonth - 1);
+    }
+}
+
+
+function updateButtons() {
+
+    const allButtons = document.querySelectorAll(".month-buttons");
+
+    allButtons.forEach(buttonContainer => {
+
+        const previousButton =
+            buttonContainer.querySelector(".nav-button:first-child");
+
+        const nextButton =
+            buttonContainer.querySelector(".nav-button:last-child");
+
+        previousButton.disabled = currentMonth === 0;
+
+        if (currentMonth === months.length - 1) {
+            nextButton.textContent = "Final →";
+        } else {
+            nextButton.textContent = "Siguiente →";
         }
-
     });
+}
 
-}, {
-    threshold: 0.2
-});
 
-sections.forEach(section => {
-    observer.observe(section);
-});
-
-// =========================
-// Button Hover Animation
-// =========================
-
-beginButton.addEventListener("mouseenter", () => {
-    beginButton.style.transform = "scale(1.08)";
-});
-
-beginButton.addEventListener("mouseleave", () => {
-    beginButton.style.transform = "scale(1)";
-});
-
-// =========================
-// Page Loaded
-// =========================
-
-window.addEventListener("load", () => {
-    document.body.classList.add("loaded");
-})
+showMonth(0);
