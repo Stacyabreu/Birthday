@@ -3,16 +3,18 @@ let currentMonth = 0;
 const months = document.querySelectorAll(".month");
 
 function showMonth(index) {
+
     months.forEach(function(month) {
-        month.classList.remove("active");
+        month.style.display = "none";
     });
 
-    months[index].classList.add("active");
+    months[index].style.display = "block";
 
     currentMonth = index;
 }
 
 function nextMonth() {
+
     if (currentMonth < months.length - 1) {
         showMonth(currentMonth + 1);
     } else {
@@ -23,6 +25,7 @@ function nextMonth() {
 }
 
 function previousMonth() {
+
     if (currentMonth > 0) {
         showMonth(currentMonth - 1);
     }
