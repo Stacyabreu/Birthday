@@ -283,10 +283,6 @@ body{
     font-size:3rem;
 }
 
-}
-.month {
-    display: none;
-}
 
 .month.active {
     display: block;
