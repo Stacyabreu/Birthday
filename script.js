@@ -1,86 +1,101 @@
-let currentMonth = 0;
+// =========================
+// SMOOTH SCROLL
+// =========================
+
+const beginButton = document.querySelector(".button");
+
+beginButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const firstMonth = document.querySelector("#mes1");
+
+    firstMonth.scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+
+// =========================
+// SCROLL ANIMATIONS
+// =========================
 
 const months = document.querySelectorAll(".month");
+const future = document.querySelector(".future");
+const ending = document.querySelector(".ending");
 
+const elementsToAnimate = [
+    ...months,
+    future,
+    ending
+];
 
-/* =========================
-   SHOW MONTH
-========================= */
+const observer = new IntersectionObserver(
+    function (entries) {
 
-function showMonth(index) {
+        entries.forEach(function (entry) {
 
-    if (index < 0 || index >= months.length) {
-        return;
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.2
     }
+);
 
-    months.forEach(function(month) {
-        month.classList.remove("active");
+
+elementsToAnimate.forEach(function (element) {
+
+    observer.observe(element);
+
+});
+
+
+// =========================
+// FUTURE MONTHS
+// =========================
+
+const futureMonths = document.querySelectorAll(".future-months div");
+
+futureMonths.forEach(function (month, index) {
+
+    month.addEventListener("click", function () {
+
+        const monthNumber = index + 7;
+
+        alert(
+            "El mes " +
+            monthNumber +
+            " todavía está por escribirse. ❤️"
+        );
+
     });
 
-    months[index].classList.add("active");
-
-    currentMonth = index;
-
-    setTimeout(function() {
-        months[index].scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-    }, 50);
-}
+});
 
 
-/* =========================
-   START
-========================= */
+// =========================
+// MOUSE MOVEMENT EFFECT
+// =========================
 
-function startExperience(event) {
+document.addEventListener("mousemove", function (event) {
 
-    if (event) {
-        event.preventDefault();
-    }
+    const x = (event.clientX / window.innerWidth) * 100;
+    const y = (event.clientY / window.innerHeight) * 100;
 
-    showMonth(0);
-}
+    document.documentElement.style.setProperty(
+        "--mouse-x",
+        x + "%"
+    );
 
+    document.documentElement.style.setProperty(
+        "--mouse-y",
+        y + "%"
+    );
 
-/* =========================
-   NEXT MONTH
-========================= */
-
-function nextMonth() {
-
-    if (currentMonth < months.length - 1) {
-
-        showMonth(currentMonth + 1);
-
-    } else {
-
-        document.querySelector(".goodbye").scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }
-}
-
-
-/* =========================
-   PREVIOUS MONTH
-========================= */
-
-function previousMonth() {
-
-    if (currentMonth > 0) {
-
-        showMonth(currentMonth - 1);
-
-    }
-}
-
-
-/* =========================
-   START WITH MONTH 1
-========================= */
-
-showMonth(0);
+});
