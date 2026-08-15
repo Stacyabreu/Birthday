@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500&display=swap');
+/* =========================
+   FONTS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
 
 
 /* =========================
@@ -16,44 +20,10 @@ html {
 }
 
 body {
-    min-height: 100vh;
-
-    background: #07111f;
-
-    color: #edf3fc;
-
+    background: #120305;
+    color: #fff5f5;
     font-family: "Montserrat", sans-serif;
-
     overflow-x: hidden;
-}
-
-
-/* =========================
-   GENERAL BACKGROUND
-========================= */
-
-body::before {
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: -1;
-
-    background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(72, 112, 173, 0.12),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 85% 75%,
-            rgba(40, 76, 130, 0.12),
-            transparent 35%
-        );
 }
 
 
@@ -64,365 +34,273 @@ body::before {
 .hero {
     min-height: 100vh;
 
-    position: relative;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
 
-    padding: 30px;
+    position: relative;
 
     background:
-        linear-gradient(
-            rgba(4, 12, 24, 0.35),
-            rgba(4, 12, 24, 0.92)
-        ),
-        radial-gradient(
-            circle at 50% 45%,
-            #183a68 0%,
-            #0b1d35 42%,
-            #050b15 100%
-        );
+        radial-gradient(circle at center, #5c0b16 0%, #2a050a 40%, #120305 80%);
 }
 
+.hero::before {
+    content: "";
 
-/* subtle stars */
-
-.stars {
     position: absolute;
 
-    top: 12%;
+    width: 500px;
+    height: 500px;
 
-    width: 100%;
+    background: #8f1525;
 
-    color: rgba(178, 205, 242, 0.35);
+    filter: blur(180px);
 
-    font-size: 13px;
+    opacity: 0.25;
 
-    letter-spacing: 18px;
-
-    animation: floatingStars 9s ease-in-out infinite alternate;
+    border-radius: 50%;
 }
 
-@keyframes floatingStars {
 
-    from {
-        opacity: .25;
-        transform: translateY(0);
-    }
+.hero-content {
+    position: relative;
 
-    to {
-        opacity: .65;
-        transform: translateY(12px);
-    }
+    z-index: 2;
 
+    width: min(850px, 90%);
+}
+
+
+.small-title {
+    font-size: 0.75rem;
+
+    letter-spacing: 5px;
+
+    color: #d98b95;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(4rem, 10vw, 8rem);
+
+    line-height: 0.85;
+
+    font-weight: 500;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 0 30px rgba(160, 20, 40, 0.4);
+}
+
+
+.hero-text {
+    font-size: 1.1rem;
+
+    line-height: 1.9;
+
+    color: #d9b9bd;
+
+    max-width: 600px;
+
+    margin: 0 auto 45px;
 }
 
 
 /* =========================
-   HERO CONTENT
+   BUTTON
 ========================= */
 
-.overlay {
-    width: min(720px, 92%);
+.button {
+
+    display: inline-block;
+
+    padding: 16px 40px;
+
+    border-radius: 50px;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    background: rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(15px);
+
+    transition: all 0.4s ease;
+}
+
+.button:hover {
+
+    background: #a8172c;
+
+    border-color: #a8172c;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(168, 23, 44, 0.35);
+}
+
+
+/* =========================
+   SCROLL TEXT
+========================= */
+
+.scroll-text {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #a76b72;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 8px);
+    }
+}
+
+
+/* =========================
+   MONTH SECTIONS
+========================= */
+
+.month {
+
+    min-height: 100vh;
+
+    width: min(1000px, 90%);
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    padding: 100px 0;
+}
+
+
+.month-number {
+
+    position: absolute;
+
+    left: -20px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(10rem, 20vw, 18rem);
+
+    font-weight: 600;
+
+    color: rgba(143, 21, 37, 0.12);
+
+    user-select: none;
+
+    z-index: 0;
+}
+
+
+.month-content {
 
     position: relative;
 
     z-index: 2;
+
+    max-width: 700px;
+
+    padding-left: 120px;
 }
 
 
-.small-star {
-    color: #8eafe0;
+.month-label {
 
-    font-size: 18px;
+    font-size: 0.7rem;
 
-    margin-bottom: 25px;
+    letter-spacing: 4px;
 
-    opacity: .8;
+    color: #c56a75;
+
+    margin-bottom: 20px;
 }
 
-
-.overlay h1 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(3.5rem, 8vw, 6rem);
-
-    font-weight: 500;
-
-    line-height: .95;
-
-    letter-spacing: -1px;
-
-    margin-bottom: 32px;
-
-    text-shadow:
-        0 0 35px rgba(116, 159, 218, .18);
-}
-
-
-.overlay p {
-    max-width: 650px;
-
-    margin: 0 auto 45px;
-
-    color: #bdcadd;
-
-    font-size: clamp(.95rem, 2vw, 1.1rem);
-
-    line-height: 2;
-
-    font-weight: 300;
-}
-
-
-/* =========================
-   BEGIN BUTTON
-========================= */
-
-.button {
-    display: inline-block;
-
-    padding: 15px 40px;
-
-    border: 1px solid rgba(151, 184, 226, .28);
-
-    border-radius: 100px;
-
-    color: #e8f1ff;
-
-    background: rgba(101, 142, 200, .08);
-
-    backdrop-filter: blur(12px);
-
-    text-decoration: none;
-
-    font-size: .9rem;
-
-    letter-spacing: 1px;
-
-    transition: .4s ease;
-}
-
-
-.button:hover {
-    transform: translateY(-4px);
-
-    background: rgba(111, 153, 215, .16);
-
-    border-color: rgba(170, 201, 240, .5);
-
-    box-shadow:
-        0 12px 35px rgba(20, 52, 92, .35);
-}
-
-
-/* =========================
-   MONTH AREA
-========================= */
-
-#meses {
-    min-height: 100vh;
-
-    padding: 100px 0;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #07111f,
-            #09182a,
-            #07111f
-        );
-}
-
-
-/* =========================
-   MONTH CARD
-========================= */
-
-.month {
-    display: none;
-
-    width: min(820px, 90%);
-
-    margin: 40px auto;
-
-    padding: clamp(40px, 7vw, 75px);
-
-    text-align: center;
-
-    position: relative;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(98, 137, 190, .075),
-            rgba(255, 255, 255, .018)
-        );
-
-    border: 1px solid rgba(146, 178, 220, .13);
-
-    border-radius: 28px;
-
-    backdrop-filter: blur(18px);
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, .3),
-        inset 0 1px rgba(255, 255, 255, .04);
-
-    animation: appear .8s ease;
-}
-
-
-.month.active {
-    display: block;
-}
-
-
-@keyframes appear {
-
-    from {
-        opacity: 0;
-
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: translateY(0);
-    }
-
-}
-
-
-/* =========================
-   MONTH NUMBER
-========================= */
-
-.month-number {
-    display: block;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: .7rem;
-
-    font-weight: 400;
-
-    letter-spacing: 5px;
-
-    color: #7799c8;
-
-    margin-bottom: 18px;
-
-    opacity: .7;
-}
-
-
-/* =========================
-   MONTH TITLE
-========================= */
 
 .month h2 {
+
     font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(3rem, 6vw, 4.5rem);
-
-    font-weight: 500;
+    font-size: clamp(3rem, 6vw, 5rem);
 
     line-height: 1;
 
-    margin-bottom: 12px;
-}
-
-
-.month h3 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 1.45rem;
-
-    font-style: italic;
-
     font-weight: 500;
 
-    color: #91add3;
-
-    margin-bottom: 38px;
+    margin-bottom: 30px;
 }
 
 
-/* =========================
-   MONTH TEXT
-========================= */
-
 .month p {
-    max-width: 660px;
 
-    margin: 0 auto 20px;
+    color: #d6b9bd;
 
-    color: #bec9d9;
-
-    font-size: 1rem;
+    font-size: 1.05rem;
 
     line-height: 2;
 
-    font-weight: 300;
+    max-width: 600px;
 }
 
 
 /* =========================
-   MONTH NAVIGATION
+   MONTH GLOW
 ========================= */
 
-.month-buttons {
-    display: flex;
+.month::after {
 
-    justify-content: center;
+    content: "";
 
-    gap: 14px;
+    position: absolute;
 
-    margin-top: 45px;
-}
+    width: 300px;
 
+    height: 300px;
 
-.nav-button {
-    padding: 11px 23px;
+    background: #8f1525;
 
-    border: 1px solid rgba(145, 177, 220, .18);
+    filter: blur(180px);
 
-    border-radius: 100px;
+    opacity: 0.08;
 
-    background: rgba(83, 121, 174, .06);
+    border-radius: 50%;
 
-    color: #b9cbe3;
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: .8rem;
-
-    cursor: pointer;
-
-    transition: .3s ease;
-}
-
-
-.nav-button:hover:not(:disabled) {
-    background: rgba(93, 137, 200, .14);
-
-    border-color: rgba(157, 190, 231, .4);
-
-    transform: translateY(-2px);
-}
-
-
-.nav-button:disabled {
-    opacity: .25;
-
-    cursor: not-allowed;
+    right: 0;
 }
 
 
@@ -431,158 +309,242 @@ body::before {
 ========================= */
 
 .month-six {
-    background:
-        linear-gradient(
-            145deg,
-            rgba(62, 82, 112, .06),
-            rgba(255, 255, 255, .012)
-        );
 
-    border-color: rgba(133, 151, 179, .1);
+    text-align: center;
+
+    justify-content: center;
+}
+
+
+.month-six .month-content {
+
+    padding-left: 0;
+
+    max-width: 750px;
 }
 
 
 .month-six .month-number {
-    color: #61738e;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: clamp(15rem, 30vw, 25rem);
+
+    color: rgba(180, 25, 45, 0.1);
 }
 
 
 .month-six h2 {
-    color: rgba(220, 229, 242, .55);
 
-    font-size: clamp(4rem, 9vw, 6rem);
-}
+    font-size: clamp(3.5rem, 7vw, 6rem);
 
-
-.month-six h3 {
-    color: #aab7ca;
+    color: #fff;
 }
 
 
 .month-six p {
-    color: #8e9bad;
 
-    margin-bottom: 28px;
+    margin: 0 auto;
+
+    color: #d9b9bd;
 }
 
 
-.month-six .quiet-text {
-    color: #687487;
+.heart {
 
-    font-style: italic;
+    font-size: 2rem;
+
+    color: #c51f3a;
+
+    margin-top: 40px;
+
+    animation: heartbeat 1.8s infinite;
 }
 
 
-.empty-line {
-    width: 45px;
+@keyframes heartbeat {
 
-    height: 1px;
+    0%, 100% {
+        transform: scale(1);
+    }
 
-    margin: 35px auto;
-
-    background: rgba(143, 164, 192, .25);
+    50% {
+        transform: scale(1.2);
+    }
 }
 
 
 /* =========================
-   GOODBYE
+   FUTURE
 ========================= */
 
-.goodbye {
+.future {
+
     min-height: 100vh;
 
-    width: min(800px, 90%);
+    display: flex;
 
-    margin: 0 auto;
+    flex-direction: column;
 
-    padding: 140px 20px 100px;
+    justify-content: center;
+
+    align-items: center;
 
     text-align: center;
 
-    background: #07111f;
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(circle at center, #3a0710 0%, #180408 45%, #120305 80%);
 }
 
 
-.final-line {
-    width: 45px;
+.future h2 {
 
-    height: 1px;
-
-    margin: 0 auto 35px;
-
-    background: #7899c5;
-}
-
-
-.goodbye h2 {
     font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(3.5rem, 7vw, 5rem);
+    font-size: clamp(4rem, 8vw, 7rem);
 
     font-weight: 500;
-
-    margin-bottom: 50px;
-}
-
-
-.final-message {
-    max-width: 650px;
-
-    margin: auto;
-}
-
-
-.final-message p {
-    color: #b8c4d5;
-
-    font-size: 1rem;
-
-    line-height: 2;
-
-    font-weight: 300;
 
     margin-bottom: 25px;
 }
 
 
+.future > p {
+
+    color: #d5b5ba;
+
+    line-height: 1.8;
+
+    max-width: 550px;
+}
+
+
+.future-months {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 60px 0 35px;
+}
+
+
+.future-months div {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(200, 70, 90, 0.25);
+
+    color: #a96a73;
+
+    transition: all 0.4s ease;
+}
+
+
+.future-months div:hover {
+
+    color: white;
+
+    background: #8f1525;
+
+    border-color: #8f1525;
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 10px 30px rgba(143, 21, 37, 0.3);
+}
+
+
+.future-text {
+
+    color: #c56a75 !important;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 1px;
+}
+
+
 /* =========================
-   LAST WORDS
+   ENDING
 ========================= */
 
-.last-words {
-    max-width: 650px;
+.ending {
 
-    margin: 120px auto 0;
+    min-height: 100vh;
 
-    padding-top: 55px;
+    display: flex;
 
-    border-top: 1px solid rgba(140, 165, 200, .1);
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background: #0d0204;
 }
 
 
-.last-words p {
+.ending-content {
+
+    max-width: 800px;
+}
+
+
+.ending h2 {
+
     font-family: "Cormorant Garamond", serif;
 
-    color: #d5dfed;
-
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-
-    line-height: 1.5;
+    font-size: clamp(3.5rem, 7vw, 6rem);
 
     font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 35px;
 }
 
 
-.last-words .last-line {
-    margin-top: 25px;
+.ending p {
 
-    color: #8fa8ca;
+    color: #d3b5b9;
 
-    font-size: clamp(1.25rem, 3vw, 1.7rem);
+    font-size: 1.1rem;
 
-    font-style: italic;
+    line-height: 2;
+}
 
-    font-weight: 400;
+
+.final-heart {
+
+    font-size: 3rem;
+
+    color: #b51c35;
+
+    margin-top: 50px;
+
+    animation: heartbeat 2s infinite;
 }
 
 
@@ -591,17 +553,28 @@ body::before {
 ========================= */
 
 ::-webkit-scrollbar {
-    width: 6px;
+
+    width: 8px;
 }
+
 
 ::-webkit-scrollbar-track {
-    background: #050b15;
+
+    background: #100204;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #263f63;
 
-    border-radius: 50px;
+::-webkit-scrollbar-thumb {
+
+    background: #64101c;
+
+    border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #9d172a;
 }
 
 
@@ -609,90 +582,34 @@ body::before {
    MOBILE
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
 
-    .hero {
-        padding: 25px;
-    }
-
-    .stars {
-        top: 10%;
-
-        font-size: 11px;
-
-        letter-spacing: 6px;
-    }
-
-    .overlay h1 {
-        font-size: clamp(3rem, 14vw, 4.5rem);
-    }
-
-    .overlay p {
-        font-size: .95rem;
-
-        line-height: 1.9;
-    }
-
-    .button {
-        padding: 14px 34px;
-    }
-
-    #meses {
-        padding: 55px 0;
+    .hero h1 {
+        font-size: 4.5rem;
     }
 
     .month {
-        width: 90%;
+        min-height: 90vh;
+    }
 
-        padding: 45px 25px;
+    .month-content {
+        padding-left: 50px;
+    }
 
-        margin: 25px auto;
-
-        border-radius: 23px;
+    .month-number {
+        left: -10px;
     }
 
     .month h2 {
         font-size: 3rem;
     }
 
-    .month h3 {
-        font-size: 1.25rem;
-
-        margin-bottom: 30px;
+    .month-six .month-content {
+        padding-left: 0;
     }
 
-    .month p {
-        font-size: .95rem;
-
-        line-height: 1.9;
+    .future-months div {
+        width: 60px;
+        height: 60px;
     }
-
-    .month-buttons {
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .nav-button {
-        width: 210px;
-    }
-
-    .goodbye {
-        width: 90%;
-
-        padding: 100px 20px 70px;
-    }
-
-    .goodbye h2 {
-        margin-bottom: 40px;
-    }
-
-    .final-message p {
-        font-size: .95rem;
-    }
-
-    .last-words {
-        margin-top: 90px;
-    }
-
 }
