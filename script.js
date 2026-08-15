@@ -1,35 +1,78 @@
-// =========================
+// ===============================
 // SMOOTH SCROLL
-// =========================
+// ===============================
 
 const beginButton = document.querySelector(".button");
 
 beginButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    const firstMonth = document.querySelector("#mes1");
-
-    firstMonth.scrollIntoView({
+    document.querySelector("#mes1").scrollIntoView({
         behavior: "smooth"
     });
 });
 
 
-// =========================
-// SCROLL ANIMATIONS
-// =========================
+// ===============================
+// OPEN MONTH CHAPTERS
+// ===============================
 
-const months = document.querySelectorAll(".month");
-const future = document.querySelector(".future");
-const ending = document.querySelector(".ending");
+const chapterButtons = document.querySelectorAll(".chapter-button");
 
-const elementsToAnimate = [
-    ...months,
-    future,
-    ending
-];
+chapterButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const chapter = button.parentElement.querySelector(".chapter-text");
+
+        chapter.classList.toggle("open");
+
+        if (chapter.classList.contains("open")) {
+            button.textContent = "Cerrar capítulo";
+        } else {
+            button.textContent = "Abrir capítulo";
+        }
+
+    });
+
+});
+
+
+// ===============================
+// BIRTHDAY GIFT
+// ===============================
+
+const birthdayButton = document.querySelector("#birthdayButton");
+
+const birthdayMessage = document.querySelector("#birthdayMessage");
+
+birthdayButton.addEventListener("click", function () {
+
+    birthdayMessage.classList.toggle("open");
+
+    if (birthdayMessage.classList.contains("open")) {
+
+        birthdayButton.textContent = "❤️";
+
+    } else {
+
+        birthdayButton.textContent = "Abrir mi regalo";
+
+    }
+
+});
+
+
+// ===============================
+// SCROLL REVEAL
+// ===============================
+
+const sections = document.querySelectorAll(
+    ".month, .birthday, .future, .ending"
+);
 
 const observer = new IntersectionObserver(
+
     function (entries) {
 
         entries.forEach(function (entry) {
@@ -43,59 +86,16 @@ const observer = new IntersectionObserver(
         });
 
     },
+
     {
-        threshold: 0.2
+        threshold: 0.15
     }
+
 );
 
 
-elementsToAnimate.forEach(function (element) {
+sections.forEach(function (section) {
 
-    observer.observe(element);
-
-});
-
-
-// =========================
-// FUTURE MONTHS
-// =========================
-
-const futureMonths = document.querySelectorAll(".future-months div");
-
-futureMonths.forEach(function (month, index) {
-
-    month.addEventListener("click", function () {
-
-        const monthNumber = index + 7;
-
-        alert(
-            "El mes " +
-            monthNumber +
-            " todavía está por escribirse. ❤️"
-        );
-
-    });
-
-});
-
-
-// =========================
-// MOUSE MOVEMENT EFFECT
-// =========================
-
-document.addEventListener("mousemove", function (event) {
-
-    const x = (event.clientX / window.innerWidth) * 100;
-    const y = (event.clientY / window.innerHeight) * 100;
-
-    document.documentElement.style.setProperty(
-        "--mouse-x",
-        x + "%"
-    );
-
-    document.documentElement.style.setProperty(
-        "--mouse-y",
-        y + "%"
-    );
+    observer.observe(section);
 
 });
